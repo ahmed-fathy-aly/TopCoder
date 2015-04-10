@@ -1,0 +1,22 @@
+<html><head><title>ForgetfulAddition</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+Alice had two positive integers, a and b.
+She typed the expression "a+b" into her computer, but the '+' key malfunctioned.
+For example, instead of "128+9" the computer's screen now shows "1289".
+</p>
+
+<p>
+Later, Bob saw the string on the screen.
+He knows that the '+' sign is missing but he does not know where it belongs.
+He now wonders what is the smallest possible result of Alice's original expression.
+</p>
+
+<p>
+For example, if Bob sees the string "1289", Alice's expression is either "128+9" or "12+89" or "1+289".
+These expressions evaluate to 137, 101, and 290.
+The smallest of those three results is 101.
+</p>
+
+<p>
+You are given a String <b>expression</b> that contains the expression on Alice's screen.
+Compute and return the smallest possible result after inserting the missing plus sign
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>ForgetfulAddition</td></tr><tr><td>Method:</td><td>minNumber</td></tr><tr><td>Parameters:</td><td>String</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int minNumber(String expression)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>expression</b> will contain between 2 and 8 characters, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each character of expression will be between '1' and '9'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;22&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4</pre></td></tr><tr><td><table><tr><td colspan="2">The only possible expression Alice could have typed is "2+2". Thus, Bob knows this evaluates to 4.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;123&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 15</pre></td></tr><tr><td><table><tr><td colspan="2">The expression Alice has typed could have been "1+23" or "12+3". Of these two, the second is smaller, thus Bob will get the answer 15. </td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;1289&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 101</pre></td></tr><tr><td><table><tr><td colspan="2">This is the example from the problem statement.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;31415926&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 9067</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;98765&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 863</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

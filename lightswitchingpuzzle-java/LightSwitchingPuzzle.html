@@ -1,0 +1,28 @@
+<html><head><title>LightSwitchingPuzzle</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+Leo has N lights in a row.
+The lights are numbered 1 through N.
+Each light is either on or off.
+</p>
+
+<p>
+Leo wants to turn all the lights off.
+He has N switches he may use.
+The switches are also numbered 1 through N.
+For each i, switch number i toggles the state of all lights whose numbers are multiples of i.
+(For example, switch 3 will toggle the state of light 3, light 6, light 9, and so on.)
+</p>
+
+<p>
+You are given the current state of all lights as a String <b>state</b> with N characters.
+For each valid i, <b>state</b>[i] is either 'Y' (meaning that light i+1 is currently on) or 'N' (meaning that the light is off).
+Determine the smallest number of switches Leo needs to press in order to turn off all the lights.
+If there is no way to turn off all the lights, return -1 instead.
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>LightSwitchingPuzzle</td></tr><tr><td>Method:</td><td>minFlips</td></tr><tr><td>Parameters:</td><td>String</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int minFlips(String state)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>state</b> will contain between 1 and 1000 characters, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each character of state will be either 'Y' or 'N'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;YYYYYY&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2">We can turn off all the lights by pressing switch 1.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;YNYNYNYNY&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2"><p>
+We cannot turn these lights off in a single step.
+It can be done in two steps.
+One possible solution looks as follows:
+First, press the second switch.
+This will toggle lights with numbers 2, 4, 6, and 8.
+The state of the lights after this change will be "YYYYYYYYY".
+Next, press the first switch to toggle all lightbulbs.
+</p></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;NNNNNNNNNN&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0</pre></td></tr><tr><td><table><tr><td colspan="2">All the lights are already off. </td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;YYYNYYYNYYYNYYNYYYYN&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;NYNNYNNNYNNNNYNNNNNYNNNNNNYNNNNNNNY&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 12</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
