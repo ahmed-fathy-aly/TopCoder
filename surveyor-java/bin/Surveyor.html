@@ -1,0 +1,21 @@
+<html><head><title>Surveyor</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><i>*** You may only submit a given problem once - no resubmissions will be accepted. ***</i><br></br><br></br>
+A plot has been surveyed. Its boundary consists of segments that form a polygon.
+Each segment runs either North-South or East-West.  Create a class Surveyor that
+contains a method area that takes as input a String <b>direction</b> and a 
+int[] <b>length</b> and returns the enclosed area.
+<p>
+The i-th character of <b>direction</b> and the i-th element of <b>length</b> describe the direction and length of the i-th segment of the polygon's boundary as the surveyor walked it. If you start
+at the surveyor's starting point and walk according to the sequence of directions and lengths reported by the surveyor, 
+you will traverse the boundary of the polygon, ending up back at the starting point. This traversal described by the given segments may be either clockwise or counterclockwise.
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>Surveyor</td></tr><tr><td>Method:</td><td>area</td></tr><tr><td>Parameters:</td><td>String, int[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int area(String direction, int[] length)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>64</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>direction</b> will have between 4 and 50 characters inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>length</b> will have the same number of elements as the number of characters in <b>direction</b>.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>direction</b> will be an uppercase letter 'N', 'E', 'S', or 'W'.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>length</b> will be between 1 and 1000 inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>The segments will represent a simple polygon. No two segments will touch or intersect (except that the last point of a segment is the first point of the next segment, and the last point of the final segment is the first point of the first segment).</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;NWWSE&quot;</pre></td></tr><tr><td><pre>{10,3,7,10,10}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 100</pre></td></tr><tr><td><table><tr><td colspan="2">
+This plot is a 10 x 10 square.
+
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;NESWNWSW&quot;</pre></td></tr><tr><td><pre>{20,200,30,100,20,30,10,70}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4700</pre></td></tr><tr><td><table><tr><td colspan="2">
+<pre>
+      ___________________
+     |       __          |
+     |______|  |         |
+    S          |_________|
+   
+The S indicates the Start/End point of the traversal.</pre></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
