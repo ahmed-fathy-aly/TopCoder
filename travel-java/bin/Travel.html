@@ -1,0 +1,29 @@
+<html><head><title>Travel</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+A traveling salesman has recently decided to go international and sell his
+wares around the globe.  He has done in depth research and has come up with a
+list of cities which he thinks will provide the best market for his goods.  In
+planning his trip, the salesman wants to minimize the total distance he has to
+travel because he does not particularly like traveling (which is unfortunate
+for him, as he is a traveling salesman) and furthermore, he figures
+the less distance he has to travel, the cheaper his trip will be.  However,
+this salesman is not particularily good at math, and so you must write a
+computer program to help him find his way in the least distance.
+</p><p>
+You will be given a set of cities defined by their longitudes and latitudes.
+In addition, you will be given the radius of the planet that this traveling
+salesman resides on.  Assume that there are direct flights, both ways, between
+every pair of cities that the salesman wants to visit, and that the flights
+follow the shortest path possible (over the surface of the planet).  In
+addition, the first element of the input String[] will be the city in which the
+salesman lives, and thus his trip must start and end at this city.
+</p><p>
+Each city is defined by two numbers, a latitude and a longitude.  The latitude
+is the number of degrees above the equator, with 90 being the north pole, and
+-90 being the south pole.  The longitude is the number of degrees east or west
+of some arbitrary, predefined point.  Thus, 90 degrees east is one quarter of
+the way around the globe in the eastern direction.
+</p><p>
+If the result is not an integer, round it to the nearest integer (.5 rounds up)
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>Travel</td></tr><tr><td>Method:</td><td>shortest</td></tr><tr><td>Parameters:</td><td>String[], int</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int shortest(String[] cities, int radius)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>64</td></tr></table></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>Assume the planet is a perfect sphere.</td></tr><tr><td align="center" valign="top">-</td><td>To find the cartesion coordinates of a city, assuming the center of the planet is at (0,0,0), use the following formulas:<br></br>x = r*cos(latitude)*cos(longitude)<br></br>y = r*cos(latitude)*sin(longitude)<br></br>z = r*sin(latitude)</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>cities</b> contains between 2 and 9 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>cities</b> represents a unique point on the globe.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>cities</b> is formatted as &quot;&lt;latitude&gt; &lt;longitude&gt;&quot; where &lt;latitude&gt; is an integer in the range -90 to 90, inclusive, and &lt;longitude&gt; is an integer in the range -180 to 180, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>radius</b> is an integer between 1 and 1,000, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>to avoid rounding errors, the shortest path, prior to rounding, will not be within 0.001 of &lt;x&gt;+0.5 for any integer &lt;x&gt;.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;0 0&quot;,&quot;0 1&quot;}</pre></td></tr><tr><td><pre>1000</pre></td></tr></table></td></tr><tr><td><pre>Returns: 35</pre></td></tr><tr><td><table><tr><td colspan="2">The two cities are located one degree apart at the same latitude</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;0 0&quot;,&quot;0 1&quot;,&quot;0 -1&quot;,&quot;-1 0&quot;,&quot;1 0&quot;,&quot;-1 -1&quot;,&quot;1 1&quot;,&quot;1 -1&quot;,&quot;-1 1&quot;}</pre></td></tr><tr><td><pre>1</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0</pre></td></tr><tr><td></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;40 -82&quot;,&quot;-27 -59&quot;,&quot;-40 48&quot;
+,&quot;26 -12&quot;,&quot;-31 -37&quot;,&quot;-30 42&quot;
+,&quot;-36 -23&quot;,&quot;-26 71&quot;,&quot;-19 83&quot;,&quot;8 63&quot;}</pre></td></tr><tr><td><pre>698</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4505</pre></td></tr><tr><td></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
