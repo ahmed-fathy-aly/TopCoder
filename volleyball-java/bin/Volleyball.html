@@ -1,0 +1,25 @@
+<html><head><title>Volleyball</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>In the current &quot;rally scoring&quot; used in volleyball, each serve results in one
+point, either for the serving team or for the receiving team.  Whoever wins
+the point is the server on the next point.  The winning team is the first 
+team to win at least 15 points and be at least 2 points ahead of the other team.
+<p>
+Suppose that two teams are playing a game, and that they are evenly matched.
+On each point, whichever team serves has a fixed probability, <b>probWinServe</b>, 
+that they will win the point. (Of course, the receiving team will win the point with 
+probability 1.0 - <b>probWinServe</b>.) 
+</p><p>
+Create a class Volleyball that contains a method win that is given <b>sScore</b> (the
+current score of the serving team), <b>rScore</b> (the current score of the receiving
+team), and <b>probWinServe</b>.  It returns the probability that the serving team will
+win the game.
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>Volleyball</td></tr><tr><td>Method:</td><td>win</td></tr><tr><td>Parameters:</td><td>int, int, double</td></tr><tr><td>Returns:</td><td>double</td></tr><tr><td>Method signature:</td><td>double win(int sScore, int rScore, double probWinServe)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>64</td></tr></table></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>The returned value must be accurate to within a relative or absolute value of 1E-9.</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>sScore</b> and <b>rScore</b> will be between 0 and 100 inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>probWinServe</b> will be greater than or equal to 0.01</td></tr><tr><td align="center" valign="top">-</td><td><b>probWinServe</b> will be less than or equal to .99</td></tr><tr><td align="center" valign="top">-</td><td>If either <b>sScore</b> or <b>rScore</b> is greater than 14, then <b>sScore</b>=<b>rScore</b> or else <b>sScore</b>=<b>rScore</b>+1.</td></tr><tr><td align="center" valign="top">-</td><td>If <b>sScore</b> equals 0, then <b>rScore</b> will also be 0.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>13</pre></td></tr><tr><td><pre>13</pre></td></tr><tr><td><pre>.5</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0.5</pre></td></tr><tr><td><table><tr><td colspan="2">
+
+   The teams are tied, and it doesn't matter who is
+   serving since <b>probWinServe</b> is 0.5. So the chance of either team winning is the same.
+
+
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>1</pre></td></tr><tr><td><pre>14</pre></td></tr><tr><td><pre>0.01</pre></td></tr></table></td></tr><tr><td><pre>Returns: 3.355704697986578E-27</pre></td></tr><tr><td><table><tr><td colspan="2">
+
+   In order for the serving team to win this game it would have to win its next 13 serves and then 
+   do well after that. So its probability of winning is less than .01 to the 13th power.  </td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>8</pre></td></tr><tr><td><pre>12</pre></td></tr><tr><td><pre>0.4</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0.046377890909090946</pre></td></tr><tr><td></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>4</pre></td></tr><tr><td><pre>3</pre></td></tr><tr><td><pre>0.01</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0.6662085066547871</pre></td></tr><tr><td></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
