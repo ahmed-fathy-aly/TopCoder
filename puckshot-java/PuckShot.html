@@ -1,0 +1,65 @@
+<html><head><title>PuckShot</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+<i>
+
+<b>Warning</b>: Embedded in this problem statement is an image that may
+not be visible if you are using a plugin. For best results, view this
+problem in the standard Arena editor.
+
+</i>
+</p><p>
+
+The left-handed Finnish hockey player Slaapi Shotti has a spectacular move
+where he fires the puck from the blue line, off the boards, and into the
+net. The relevant portion of an international hockey rink is shown below.
+
+</p>
+<pre>
+<center>
+<img src="http://www.topcoder.com/contest/problem/PuckShot/rink_02.png"></img>
+</center>
+</pre>
+<p>
+
+The rink is 3000 centimeters (cm) wide. The distance between the blue
+line and the goal line is 1733 cm. Centered on the goal line is the
+goal itself, which is 183 cm wide and marked with a goalpost at each
+end. When Slaapi shoots, the puck will travel in a straight line from
+a given point on the blue line, rebound symmetrically from the right
+border of the rink, and continue traveling in a straight line. We shall
+model the puck and the goalposts as infinitesimal points on the ice.
+
+</p><p>
+
+Positioned on the ice are up to nine players, whom we model as line
+segments that are 50 cm long and parallel to the blue line. Each player
+must stand on or below the goal line, at least one centimeter above 
+the blue line, and at least one centimeter away from the sides. Players 
+may overlap or coincide. In order for Slaapi to score a goal, the puck
+may not intersect a player's line segment at any point, including its
+endpoints. For the purposes of player position as well as puck rebound,
+you may ignore the curvature of the rink and assume that the boards are
+perfectly straight, forming a rectangle with the blue line and goal line.
+
+</p><p>
+
+Slaapi must shoot the puck from the point on the blue line whose distance
+from the left border of the rink is given by the int
+<b>puckCoord</b>. You are also given two int[]s,
+<b>xCoords</b> and <b>yCoords</b>. The distance in centimeters of the
+<i>n</i>th player's midpoint from the left border of the rink is given by
+the <i>n</i>th element of <b>xCoords</b>, and the distance of his midpoint
+from the blue line is given by the <i>n</i>th element of <b>yCoords</b>.
+
+</p><p>
+
+Calculate the angle, measured counterclockwise from the blue line,
+at which Slaapi must shoot the puck so that its point of intersection
+with the goal line is between the goalposts, inclusively, and as close
+as possible to the right goalpost. Return your answer in degrees as a
+double value with an absolute or relative error of 1.0e-9.
+Return -1.0 if Slaapi cannot score a goal in the prescribed manner.
+The input is guaranteed to be such that the rightmost gap through which
+Slaapi can score, if any, is at least 1.0e-6 cm wide at the goal line.
+
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>PuckShot</td></tr><tr><td>Method:</td><td>caromAngle</td></tr><tr><td>Parameters:</td><td>int, int[], int[]</td></tr><tr><td>Returns:</td><td>double</td></tr><tr><td>Method signature:</td><td>double caromAngle(int puckCoord, int[] xCoords, int[] yCoords)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>64</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>puckCoord</b> is between 1 and 2999, inclusive</td></tr><tr><td align="center" valign="top">-</td><td><b>xCoords</b> contains between one and nine elements, inclusive</td></tr><tr><td align="center" valign="top">-</td><td><b>yCoords</b> contains the same number of elements as <b>xCoords</b></td></tr><tr><td align="center" valign="top">-</td><td>each element of <b>xCoords</b> is between 26 and 2974, inclusive</td></tr><tr><td align="center" valign="top">-</td><td>each element of <b>yCoords</b> is between 1 and 1733, inclusive</td></tr><tr><td align="center" valign="top">-</td><td>the input is such that the rightmost gap through which Slaapi can score, if any, is at least 1.0e-6 cm wide at the goal line</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>2833</pre></td></tr><tr><td><pre>{1500, 1580}</pre></td></tr><tr><td><pre>{1730, 1730}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 47.022170720170784</pre></td></tr><tr><td><table><tr><td colspan="2">Two players are positioned near the goal, one in the center and another by the right goalpost. Between them is a gap that lets Slaapi score a goal. He puts the puck as close to the right goalpost as possible.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>2833</pre></td></tr><tr><td><pre>{2690}</pre></td></tr><tr><td><pre>{500}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 44.88563731851585</pre></td></tr><tr><td><table><tr><td colspan="2">A single player not far from the blue line forces Slaapi to put the puck near the left goalpost.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>2833</pre></td></tr><tr><td><pre>{2690, 2676}</pre></td></tr><tr><td><pre>{500, 500}</pre></td></tr></table></td></tr><tr><td><pre>Returns: -1.0</pre></td></tr><tr><td><table><tr><td colspan="2">Two players not far from the blue line are completely blocking Slaapi's shot.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>55</pre></td></tr><tr><td><pre>{1479, 1427, 2556, 2834, 2866, 2958, 2763, 2899, 2630}</pre></td></tr><tr><td><pre>{1708, 1726, 487, 471, 121, 446, 473, 266, 380}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 21.706043385046158</pre></td></tr><tr><td></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>1809</pre></td></tr><tr><td><pre>{1571}</pre></td></tr><tr><td><pre>{1730}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 33.18726534329994</pre></td></tr><tr><td><table><tr><td colspan="2">The player's right endpoint is exactly in the way of the right goalpost, so Slaapi must shoot to the left of the player.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
