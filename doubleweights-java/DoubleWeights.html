@@ -1,0 +1,48 @@
+<html><head><title>DoubleWeights</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>We have a simple undirected graph G with n nodes, labeled 0 through n-1.
+Each edge of this graph has two weights.
+You are given the description of G encoded into String[]s <b>weight1</b> and <b>weight2</b>.
+If nodes i and j are connected by an edge, both <b>weight1</b>[i][j] and <b>weight2</b>[i][j] are nonzero digits ('1'-'9'), and these represent the two weights of this edge.
+Otherwise, both <b>weight1</b>[i][j] and <b>weight2</b>[i][j] are periods ('.').<br></br>
+<br></br>
+Your task is to find the cheapest path from node 0 to node 1.
+The cost of a path is calculated as (W1 * W2), where W1 is the sum of all first weights and W2 is the sum of all second weights of the edges on your path.
+Return the smallest possible cost of a path from node 0 to node 1.
+If there is no such path, return -1 instead.</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>DoubleWeights</td></tr><tr><td>Method:</td><td>minimalCost</td></tr><tr><td>Parameters:</td><td>String[], String[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int minimalCost(String[] weight1, String[] weight2)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td>n will be between 2 and 20, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>weight1</b> and <b>weight2</b> will contain exactly n elements, each.</td></tr><tr><td align="center" valign="top">-</td><td>Each element in <b>weight1</b> and <b>weight2</b> will contain exactly n characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>weight1</b> and <b>weight2</b> will be '.' or '1' - '9'.</td></tr><tr><td align="center" valign="top">-</td><td>For each i, <b>weight1</b>[i][i] = <b>weight2</b>[i][i] = '.'.</td></tr><tr><td align="center" valign="top">-</td><td>For each i and j, <b>weight1</b>[i][j] = <b>weight1</b>[j][i].</td></tr><tr><td align="center" valign="top">-</td><td>For each i and j, <b>weight2</b>[i][j] = <b>weight2</b>[j][i].</td></tr><tr><td align="center" valign="top">-</td><td><b>weight1</b>[i][j] = '.' if and only if <b>weight2</b>[i][j] = '.'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;..14&quot;,
+ &quot;..94&quot;,
+ &quot;19..&quot;,
+ &quot;44..&quot;}</pre></td></tr><tr><td><pre>{&quot;..94&quot;,
+ &quot;..14&quot;,
+ &quot;91..&quot;,
+ &quot;44..&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 64</pre></td></tr><tr><td><table><tr><td colspan="2">The best path is 0 -&gt; 3 -&gt; 1.
+The cost of this path is (4+4) * (4+4) = 64.<br></br>
+<br></br>
+Note that the other possible path (0 -&gt; 2 -&gt; 1) is more expensive.
+Its cost is (1+9) * (9+1) = 100.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;..14&quot;,
+ &quot;..14&quot;,
+ &quot;11..&quot;,
+ &quot;44..&quot;}</pre></td></tr><tr><td><pre>{&quot;..94&quot;,
+ &quot;..94&quot;,
+ &quot;99..&quot;,
+ &quot;44..&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 36</pre></td></tr><tr><td><table><tr><td colspan="2">This time the best path is 0->2->1, the cost is (1+1) * (9+9) = 36.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;..&quot;,
+ &quot;..&quot;}</pre></td></tr><tr><td><pre>{&quot;..&quot;,
+ &quot;..&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: -1</pre></td></tr><tr><td><table><tr><td colspan="2">There is no path between node 0 and node 1, so you should return -1.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.....9&quot;,
+ &quot;..9...&quot;,
+ &quot;.9.9..&quot;,
+ &quot;..9.9.&quot;,
+ &quot;...9.9&quot;,
+ &quot;9...9.&quot;}</pre></td></tr><tr><td><pre>{&quot;.....9&quot;,
+ &quot;..9...&quot;,
+ &quot;.9.9..&quot;,
+ &quot;..9.9.&quot;,
+ &quot;...9.9&quot;,
+ &quot;9...9.&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2025</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.4...1&quot;,
+ &quot;4.1...&quot;,
+ &quot;.1.1..&quot;,
+ &quot;..1.1.&quot;,
+ &quot;...1.1&quot;,
+ &quot;1...1.&quot;}</pre></td></tr><tr><td><pre>{&quot;.4...1&quot;,
+ &quot;4.1...&quot;,
+ &quot;.1.1..&quot;,
+ &quot;..1.1.&quot;,
+ &quot;...1.1&quot;,
+ &quot;1...1.&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 16</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

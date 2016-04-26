@@ -1,0 +1,32 @@
+<html><head><title>RGBTree</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>You are given a simple undirected graph with n nodes, labeled 0 through n-1.
+Each edge of this graph is red, green, or blue.
+You are given a description of the graph in a String[] <b>G</b>.
+For each pair of nodes (i, j) there are four possibilities:
+<ul>
+<li><b>G</b>[i][j] = 'R', meaning that i and j are connected by a red edge.</li>
+<li><b>G</b>[i][j] = 'G', meaning that i and j are connected by a green edge.</li>
+<li><b>G</b>[i][j] = 'B', meaning that i and j are connected by a blue edge.</li>
+<li><b>G</b>[i][j] = '.', meaning that i and j are not connected by an edge.</li>
+</ul>
+<br></br>
+A spanning tree of our graph is any set S of exactly k = n-1 edges such that it is possible to travel from any node to any other node by only using edges from S.
+Does our graph have a spanning tree that has exactly k/3 edges of each color (red, green, blue)?
+If it does, return "Exists".
+Otherwise, return "Does not exist".</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>RGBTree</td></tr><tr><td>Method:</td><td>exist</td></tr><tr><td>Parameters:</td><td>String[]</td></tr><tr><td>Returns:</td><td>String</td></tr><tr><td>Method signature:</td><td>String exist(String[] G)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td>n will be between 4 and 13, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>n mod 3 will be 1.</td></tr><tr><td align="center" valign="top">-</td><td><b>G</b> will contain exactly n elements.</td></tr><tr><td align="center" valign="top">-</td><td>Each element in <b>G</b> will contain exactly n characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>G</b> will be one of {'.', 'R', 'G', 'B'}.</td></tr><tr><td align="center" valign="top">-</td><td>For each i, <b>G</b>[i][i] = '.'.</td></tr><tr><td align="center" valign="top">-</td><td>For each i and j, <b>G</b>[i][j] = <b>G</b>[j][i].</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.RGB&quot;,
+ &quot;R...&quot;,
+ &quot;G...&quot;,
+ &quot;B...&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Exist&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">This graph has exactly three edges: one red, one green, and one blue.
+These three edges form the desired spanning tree.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.RRB&quot;,
+ &quot;R...&quot;,
+ &quot;R...&quot;,
+ &quot;B...&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Does not exist&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">This graph does also have a spanning tree.
+Its only spanning tree contains the edges (0,1), (0,2), and (0,3).
+However, this spanning tree contains two red and no green edges.
+Thus, a spanning tree with the desired property does not exist.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.R..BG..G..RG&quot;,&quot;R...GG..BR.G.&quot;,&quot;...G.GG.RR.BB&quot;,&quot;..G.RR.B..GRB&quot;,&quot;BG.R.G.BRRR.G&quot;,&quot;GGGRG.R....RR&quot;,&quot;..G..R.BGRR..&quot;,&quot;...BB.B.RB.G.&quot;,&quot;GBR.R.GR.B.R.&quot;,&quot;.RR.R.RBB.BRB&quot;,&quot;...GR.R..B...&quot;,&quot;RGBR.R.GRR...&quot;,&quot;G.BBGR...B...&quot;}
+</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Exist&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;.............&quot;,&quot;.......BB.R..&quot;,&quot;.......RR....&quot;,&quot;.....G.G....R&quot;,&quot;........BB...&quot;,&quot;...G.........&quot;,&quot;........B...R&quot;,&quot;.BRG.......G.&quot;,&quot;.BR.B.B...GB.&quot;,&quot;....B......GR&quot;,&quot;.R......G....&quot;,&quot;.......GBG..B&quot;,&quot;...R..R..R.B.&quot;}
+</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Does not exist&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;..B.BB...RB..&quot;,&quot;......R..B.G.&quot;,&quot;B.......BB...&quot;,&quot;.......R...G.&quot;,&quot;B....GRB..R..&quot;,&quot;B...G.RG.R...&quot;,&quot;.R..RR..B.RB.&quot;,&quot;...RBG...G...&quot;,&quot;..B...B......&quot;,&quot;RBB..R.G....R&quot;,&quot;B...R.R......&quot;,&quot;.G.G..B.....R&quot;,&quot;.........R.R.&quot;}
+</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Exist&quot;</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">5)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;....&quot;,
+ &quot;....&quot;,
+ &quot;....&quot;,
+ &quot;....&quot;}
+</pre></td></tr></table></td></tr><tr><td><pre>Returns: &quot;Does not exist&quot;</pre></td></tr><tr><td><table><tr><td colspan="2">This graph has no spanning trees at all.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
