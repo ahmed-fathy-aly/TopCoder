@@ -1,0 +1,27 @@
+<html><head><title>TheKingsTree</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+The King of Byteland is going to decorate a rooted tree.
+The tree has N vertices, numbered 0 through N-1.
+Vertex 0 is the root of the tree.
+</p>
+<p>
+</p>
+<p>
+You are given the description of the tree in a int[] <b>parent</b>.
+For each valid i, the parent of vertex i+1 is <b>parent</b>[i].
+Note that the number of the parent is always smaller than the number of the child.
+</p>
+<p>
+</p>
+<p>
+Each vertex of the tree must be painted in one of two colors: red or green.
+After the entire tree has been painted we can compute the cost of the painting.
+For each i, the cost of painting vertex i is defined as the number of vertices that are in the subtree rooted at i and have the same color as vertex i.
+For example, if a vertex is red and all other vertices in its subtree are green, the cost of painting this vertex is 1.
+The cost of painting the entire tree is the sum of all costs of painting its vertices.
+</p>
+<p>
+</p>
+<p>
+Return the minimum cost of painting the given tree.
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>TheKingsTree</td></tr><tr><td>Method:</td><td>getNumber</td></tr><tr><td>Parameters:</td><td>int[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int getNumber(int[] parent)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td>N will be between 1 and 50, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>parent</b> will contain exactly N-1 elements.</td></tr><tr><td align="center" valign="top">-</td><td>For each i, <b>parent</b>[i] will be between 0 and i, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{0, 0, 0}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4</pre></td></tr><tr><td><table><tr><td colspan="2">The root vertex 0 has three children: vertices 1, 2, and 3.
+One optimal way to color this tree is to color all three children red and their parent green.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{0, 1, 2, 3, 4}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 12</pre></td></tr><tr><td><table><tr><td colspan="2">Color any three vertices green and the other three red.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{0, 1, 2, 3, 1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 10</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{0, 0, 1, 0, 4, 3, 5, 2, 0, 7, 9, 2, 4, 5, 3, 1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 26</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
