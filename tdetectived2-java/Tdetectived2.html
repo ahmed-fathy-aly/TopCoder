@@ -1,0 +1,65 @@
+<html><head><title>Tdetectived2</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>There is a group of n people.
+The people are numbered 0 through n-1.
+Person number 0 is the principal witness.
+Exactly one of people 1 through n-1 is the killer.
+In addition to the n people there is a single detective who wants to find the killer.</p>
+
+<p>Whenever the detective talks to a person, he can determine with absolute certainty whether the person is the killer or not.
+Thus, all he needs to do is to talk to all the people in some order and he will certainly find the killer.
+However, the time needed to find the killer depends on the order in which the detective talks to the suspects.</p>
+
+<p>During the investigation the detective maintains a list of his suspicion levels:
+for each person between 0 and n-1, inclusive, the suspicion level of that person is an integer between 0 and 9, inclusive.
+(The larger the number, the more the detective currently suspects the person.)
+Initially, the suspicion levels of all n suspects are equal to 0.
+
+At the beginning of investigation, the detective will interview the principal witness (person 0) and he will use the information he receives to update his suspicion levels. (The way this works is explained in detail below.)</p>
+
+<p>The investigation then proceeds in rounds.
+Each round of investigation looks as follows:
+First, the detective must choose whom to interview next.
+Then, the detective interviews the chosen person.
+If that person is the killer, the investigation is over.
+Otherwise, the detective will receive new information from the witness and he will use it to update his suspicion levels.</p>
+
+When choosing whom to interview next, the detective decides as follows:
+<ul>
+<li>He <i>must</i> choose a person he did not interview yet.</li>
+<li>Among those, he <i>must</i> choose a person with the highest suspicion level.</li>
+<li>Among those, he <i>may</i> choose any person.</li>
+</ul>
+
+<p>You are given a String[] <b>s</b> with n elements, each with n characters.
+Each of those characters is a digit between 0 and 9, inclusive.
+The string <b>s</b>[i] is the information received when the detective interviews person i and that person is not the killer.
+For each j, the digit <b>s</b>[i][j] is the level to which person i and person j dislike each other.
+(Note that the information in <b>s</b> is symmetric: <b>s</b>[i][j] always equals <b>s</b>[j][i].)
+The more person i dislikes person j, the more incriminating evidence against person j will be presented by person i to the detective.
+When the detective receives this information, he will update the suspicion level of person j from its current value to the maximum of its current value and the value <b>s</b>[i][j].
+(For example, after interviewing person 0 the detective's current suspicion level of each person j is increased from 0 to <b>s</b>[0][j].)</p>
+
+<p>For each k between 1 and n-1, we are now going to solve the following problem:
+Assume person k is the killer.
+What is the smallest number of rounds of interviewing (NOT counting the initial interview with person 0) the detective needs to interview in order to find the killer?
+Let's denote the answer to this question as ans[k].
+In other words, ans[k] is the smallest value X such that there is a valid sequence of X people the detective could interview after person 0 (according to the above rules) that ends with person k.</p>
+
+<p>Compute the value ans[k] for each valid k.
+Return the sum of k*ans[k] over all valid k.
+(For example, if n=4, return the value 1*ans[1] + 2*ans[2] + 3*ans[3].)</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>Tdetectived2</td></tr><tr><td>Method:</td><td>reveal</td></tr><tr><td>Parameters:</td><td>String[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int reveal(String[] s)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>s</b> will contain n elements.</td></tr><tr><td align="center" valign="top">-</td><td>n will be between 2 and 18, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element in <b>s</b> will contain exactly n characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>s</b> will be between '0' and '9', inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>s</b> will be symmetric, so <b>s</b>[i][j] will be equal to <b>s</b>[j][i].</td></tr><tr><td align="center" valign="top">-</td><td>Diagonal characters are not significant, so <b>s</b>[i][i] will be equal to '0'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;000&quot;,&quot;000&quot;,&quot;000&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 3</pre></td></tr><tr><td><table><tr><td colspan="2"><p>Nobody knows anything about anybody else.</p>
+
+<p>If the killer is person 1, the smallest number of rounds is ans[1]=1:
+after the initial interview of person 0 there will be a single round in which the detective interviews person 1.</p>
+
+<p>If the killer is person 2, the smallest number of rounds is again ans[1]=1:
+after interviewing person 0 both other people have the same suspicion level, so the detective can also choose person 2 in the first round.</p>
+
+<p>The correct return value is 1*1 + 2*1 = 3.</p>
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;0224&quot;,&quot;2011&quot;,&quot;2104&quot;,&quot;4140&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 10</pre></td></tr><tr><td><table><tr><td colspan="2"><p>After the initial interview the detective will always choose person 3 in the first round.
+If person 3 is not the killer, the detective will receive new information that will increase the suspicion level of person 2.
+Therefore, in the second round the detective will interview person 2.
+If person 2 is also not the killer, there will be a third round in which the detective interviews the last remaining person: person 1.</p>
+
+<p>Hence, the answers are ans[1]=3, ans[2]=2, and ans[3]=1.
+Therefore, the correct return value is 1*3 + 2*2 + 3*1 = 10.</p>
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;0886&quot;,&quot;8086&quot;,&quot;8801&quot;,&quot;6610&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 12</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;064675511&quot;,&quot;603525154&quot;,&quot;430262731&quot;,&quot;652030511&quot;,&quot;726302420&quot;,&quot;552020464&quot;,&quot;517544052&quot;,&quot;153126500&quot;,&quot;141104200&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 170</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;0313131&quot;,&quot;3030020&quot;,&quot;1301132&quot;,&quot;3010031&quot;,&quot;1010003&quot;,&quot;3233003&quot;,&quot;1021330&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 37</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
