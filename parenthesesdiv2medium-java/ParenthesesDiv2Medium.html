@@ -1,0 +1,29 @@
+<html><head><title>ParenthesesDiv2Medium</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>Correct parentheses sequences can be defined recursively as follows:
+<ul>
+<li>The empty string "" is a correct sequence.</li>
+<li>If "X" and "Y" are correct sequences, then "XY" (the concatenation of X and Y) is a correct sequence.</li>
+<li>If "X" is a correct sequence, then "(X)" is a correct sequence.</li>
+<li>Each correct parentheses sequence can be derived using the above rules.</li>
+</ul>
+Examples of correct parentheses sequences include "", "()", "()()()", "(()())", and "(((())))".<br></br>
+<br></br>
+<br></br>
+You have a String <b>s</b> of length n, where n is even.
+Your task is to change it into a correct parentheses sequence.
+In order to do that, you are allowed to flip some parentheses.
+Flipping a parenthesis changes it from '(' to ')' and vice versa.
+<br></br>
+<br></br>
+<br></br>
+There is always a way to change <b>s</b> into a correct parentheses sequence by doing at most (n/2)+1 flips.
+Find any such sequence of flips.
+Return a int[] containing a sequence of 0-based indices of parentheses in <b>s</b> you want to flip.</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>ParenthesesDiv2Medium</td></tr><tr><td>Method:</td><td>correct</td></tr><tr><td>Parameters:</td><td>String</td></tr><tr><td>Returns:</td><td>int[]</td></tr><tr><td>Method signature:</td><td>int[] correct(String s)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr><tr><td>Stack limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>s</b> will contain between 2 and 50 characters, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>The length of <b>s</b> will be even.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>s</b> will be '(' or ')'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;)(&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 1 }</pre></td></tr><tr><td><table><tr><td colspan="2">The returned sequence represents the following sequence of changes:
+<ul>
+<li>Start with the string ")(".</li>
+<li>Flip character 0. This produces the string "((".</li>
+<li>Flip character 1. This produces the string "()", which is a corrent parentheses sequence.</li>
+</ul></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;)))))(((((&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 2, 4, 5, 7, 9 }</pre></td></tr><tr><td><table><tr><td colspan="2">Performing the flips described by the returned sequence changes the given string into the corrent parentheses sequence "()()()()()".
+The answer {2, 0, 4, 9, 7, 5} would also be valid, as the order in which we perform the flips does not matter.
+However, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} is not a valid answer: this sequence of flips does produce a correct parentheses sequence but the number of flips is too large.
+As the length of <b>s</b> is 10, we may only perform at most 10/2 + 1 = 6 flips.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;((()&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: {1 }</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;)))(()(())))))&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 1, 2 }</pre></td></tr><tr><td><table><tr><td colspan="2">Here, {0, 1, 2, 3, 3} would also be a valid answer.
+Flipping the same parenthesis twice is allowed, even though it is clearly useless.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;()()()()()()()()()()()()()&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: { }</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
